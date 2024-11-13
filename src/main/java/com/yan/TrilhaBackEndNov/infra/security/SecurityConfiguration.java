@@ -39,6 +39,7 @@
                             .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                             .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                             .requestMatchers(HttpMethod.GET, "/task/list/").authenticated()
+                            .requestMatchers(HttpMethod.DELETE,"/task/delete/").authenticated()
                             .requestMatchers(HttpMethod.POST,"/task/add/").authenticated().anyRequest()
                             .authenticated())
                     .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

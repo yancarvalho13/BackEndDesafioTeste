@@ -1,6 +1,6 @@
 package com.yan.TrilhaBackEndNov.service.taskService;
 
-import com.yan.TrilhaBackEndNov.model.Task;
+import com.yan.TrilhaBackEndNov.model.task.Task;
 import com.yan.TrilhaBackEndNov.model.user.User;
 import com.yan.TrilhaBackEndNov.repository.taskRepository.TaskRepository;
 import com.yan.TrilhaBackEndNov.repository.userRepository.UserRepository;

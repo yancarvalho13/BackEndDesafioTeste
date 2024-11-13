@@ -20,14 +20,6 @@ public class TokenService {
 
     public String generateToken(User user) {
         try {
-            if (user == null) {
-                throw new IllegalArgumentException("User cannot be null");
-            }
-            if (user.getEmail() == null || user.getEmail().isEmpty()) {
-                throw new IllegalArgumentException("User email cannot be null or empty");
-            }
-
-            System.out.println("Generating token for user: " + user.getEmail());
 
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
@@ -36,7 +28,7 @@ public class TokenService {
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
 
-            System.out.println("Token generated successfully: " + token.substring(0, 10) + "...");
+            System.out.println("Token generated successfully!!");
             return token;
 
         } catch (JWTCreationException exception) {
@@ -51,8 +43,6 @@ public class TokenService {
                 System.err.println("Token is null or empty");
                 return "";
             }
-
-            System.out.println("Validating token: " + token.substring(0, 10) + "...");
 
             Algorithm algorithm = Algorithm.HMAC256(secret);
             var decodedJWT = JWT.require(algorithm)

@@ -1,12 +1,11 @@
 package com.yan.TrilhaBackEndNov.controller;
 
-import com.yan.TrilhaBackEndNov.model.Task;
+import com.yan.TrilhaBackEndNov.model.task.Task;
 import com.yan.TrilhaBackEndNov.model.user.User;
 import com.yan.TrilhaBackEndNov.repository.taskRepository.TaskRepository;
 import com.yan.TrilhaBackEndNov.repository.userRepository.UserRepository;
 import com.yan.TrilhaBackEndNov.service.taskService.TaskServiceImpl;
 import com.yan.TrilhaBackEndNov.service.userService.UserServiceImpl;
-import jakarta.persistence.GeneratedValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -60,4 +59,20 @@ public class TaskController {
     public List<Task> getAllTasks(@PathVariable Long userID){
         return taskService.findAllByUser(userID);
     }
-}
+
+    @DeleteMapping("/delete/{userId}/{taskId}")
+    public String deleteTask(@PathVariable Long userId, @PathVariable Long taskId){
+        Optional<User> user = userRepository.findById(userId);
+        if(user.isEmpty()){
+            return "Usuário nao foi encontrado";
+        }
+        Optional<Task> task = taskRepository.findByIdAndUserId(taskId, userId);
+        if(task.isEmpty()){
+            return "Tarefa não existe para o usuário especificado";
+        }
+
+        taskRepository.deleteById(taskId);
+        return "Tarefa deletada";
+        }
+    }
+

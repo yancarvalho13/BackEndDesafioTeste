@@ -28,10 +28,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-
-        System.out.println("Processing request to: " + request.getRequestURI());
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String token = recoverToken(request);
 
@@ -46,9 +43,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 
                     UserDetails user = userRepository.findByEmail(email);
 
-                    if (user != null) {
-                        System.out.println("User found in database: " + user.getUsername());
-
                         var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -56,9 +50,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                     } else {
                         System.err.println("User not found in database for email: " + email);
                     }
-                } else {
-                    System.err.println("No valid email found in token");
-                }
+
             } catch (Exception e) {
                 System.err.println("Error processing token: " + e.getMessage());
                 e.printStackTrace();

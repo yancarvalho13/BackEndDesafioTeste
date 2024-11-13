@@ -1,7 +1,7 @@
 package com.yan.TrilhaBackEndNov.model.user;
 
 
-import com.yan.TrilhaBackEndNov.model.Task;
+import com.yan.TrilhaBackEndNov.model.task.Task;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

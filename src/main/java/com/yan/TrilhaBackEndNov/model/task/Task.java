@@ -1,4 +1,4 @@
-package com.yan.TrilhaBackEndNov.model;
+package com.yan.TrilhaBackEndNov.model.task;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yan.TrilhaBackEndNov.model.user.User;

@@ -1,7 +1,7 @@
 package com.yan.TrilhaBackEndNov.service.taskService;
 
 import java.util.List;
-import com.yan.TrilhaBackEndNov.model.Task;
+import com.yan.TrilhaBackEndNov.model.task.Task;
 
 public interface TaskService {
 
