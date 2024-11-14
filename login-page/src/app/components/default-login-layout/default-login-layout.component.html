@@ -1,15 +1,21 @@
 <main>
-    <section>
-        <img src="assets/svg/delivery.svg"/>
-        <h2></h2>
-        <button></button>
-        <div>
+    <section class="form-section">
+        //<img src="assets/svg/delivery.svg" class="delivery"/>
+        <h2>{{title}}</h2>
+        <ng-content ></ng-content>
+        
+        <div class="button-wraper">
+            <button class="primaryBtn">{{primaryBtnText}}</button>
+        <div class="divider">
+            <div></div>
             <span>or</span>
+            <div></div>
         </div>
-        <button></button>
+        <button class="secondaryBtn">{{secondaryBtnText}}</button>
+        </div>
     </section>
-    <section>
+    <section class="main-section">
          <h1>Welcome, We Love to get you back</h1>
-         <img src="assets/svg/logoTodo.svg" class="todo-image"/>
+         <img src="assets/svg/TodoPrincipal.jpg" class="todo-image"/>
     </section>
 </main> 
