@@ -87,6 +87,10 @@ main{
             padding: 12px;
             border-color: black;
             cursor: pointer;
+
+            &:disabled{
+                opacity: 0.8;
+            }
             
 
         }
