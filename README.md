@@ -3,7 +3,7 @@
 API para gerenciamento de usuários e tarefas com autenticação segura e banco de dados SQLite.
 
 ## Tecnologias
-
+- Angular18
 - Java + Spring Boot
 - JPA + SQLite
 - Spring Security + BCrypt
